@@ -51,4 +51,46 @@ public class Sorting implements Sort {
             heapify(a,start,end-i);
         }
     }
+
+    public void merge(int[] arr,int low,int mid,int high){
+        int n1=mid-low+1;
+        int n2=high-mid;
+        int[] A= new int[n1];
+        int[] B= new int[n2];
+        for(int i=0;i<n1;i++) {
+            A[i] = arr[low + i];
+        }
+        for (int i=0;i<n2;i++){
+            B[i] = arr[mid+1+i];
+        }
+        int i=0,j=0,k=low;
+        while (i<n1&&j<n2){
+            if(A[i]<B[j]){
+                arr[k++]=A[i++];
+            }
+            else{
+                arr[k++]=B[j++];
+            }
+        }
+        if(i>=n1){
+            while(j<n2){
+                arr[k++]=B[j++];
+            }
+        }
+        if(j>=n2){
+            while (i<n1){
+                arr[k++]=A[i++];
+            }
+        }
+    }
+
+    @Override
+    public void mergeSort(int[] a, int start, int end) {
+        if(start<end){
+            int mid= (start+end)/2;
+            mergeSort(a,start,mid);
+            mergeSort(a,mid+1,end);
+            merge(a,start,mid,end);
+        }
+    }
 }

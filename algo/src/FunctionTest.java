@@ -14,7 +14,8 @@ public class FunctionTest {
         int A[] = {1, 4, 45, 6, 10, 8};
         Sorting test = new Sorting();
         //test.quickSort(A,0,A.length-1);
-        test.heapSort(A,0,A.length);
+        //test.heapSort(A,0,A.length);
+        test.mergeSort(A,0,A.length-1);
         printArray(A);
     }
 }
