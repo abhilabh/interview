@@ -1,3 +1,4 @@
+import LinkedList.LinkedInt;
 import Sort.Sorting;
 
 /**
@@ -15,7 +16,17 @@ public class FunctionTest {
         Sorting test = new Sorting();
         //test.quickSort(A,0,A.length-1);
         //test.heapSort(A,0,A.length);
-        test.mergeSort(A,0,A.length-1);
-        printArray(A);
+        //test.mergeSort(A,0,A.length-1);
+       // printArray(A);
+        LinkedInt list =new LinkedInt();
+        list = list.insertNode(list, 1);
+        list = list.insertNode(list, 2);
+        list = list.insertNode(list, 3);
+        list = list.insertNode(list, 4);
+        list = list.insertNode(list, 5);
+        list = list.insertNode(list, 6);
+        list = list.insertNode(list, 7);
+        list = list.insertNode(list, 8);
+        list.printList(list);
     }
 }
