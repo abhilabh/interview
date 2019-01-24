@@ -4,54 +4,27 @@
 
 
 
-public class SolForSum extends AbstractHash  {
+public class SolForSum  {
 
-    int[] hash ;
+    public int[] hash ;
+    private static SolForSum solForSum = new SolForSum();
 
-    public SolForSum(int size){
+    public static SolForSum getInstance(){return solForSum;}
+
+    private SolForSum(){};
+
+    public void initilizeHash(int size){
         hash= new int[size];
         for(int i=0; i<hash.length;i++){
             hash[i]=-1;
         }
-    }
-    @Override
-    public int getHash(int value) {
-        int size = hash.length;
-        int key = value%size;
-        if(hash[(key)]==-1){
-            return key;
-        }
-        else {
-            for(int i=0;i<size;i++){
-                if(hash[((key++)%size)]!=-1){
-                    return key;
-                }
-            }
-
-        }
-        return  key;
-    }
-    @Override
-    public boolean searchValue(int value){
-        int size = hash.length;
-        int key = value%size;
-        if(hash[key]==value){
-            return true;
-        }
-        else{
-            while((key)%size!=0){
-                if(hash[key]==value) return true;
-                key++;
-            }
-        }
-        return false;
     }
 
     public void insertIntoHash(int[] Arr){
 
 
         for(int i=0;i<Arr.length;i++){
-            hash[getHash(Arr[i])]=Arr[i];
+            hash[Hashing.getInstance().getHash(Arr[i],SolForSum.getInstance().hash)]=Arr[i];
         }
     }
 
@@ -62,16 +35,16 @@ public class SolForSum extends AbstractHash  {
     }
 
     public  static boolean  isSolPossible(int[] Arr,int size, int sum){
-        //int hash[] = new int[Arr.length];
-        SolForSum test = new SolForSum(Arr.length);
-        test.insertIntoHash(Arr);
+        Hashing hashVar =Hashing.getInstance();
+        SolForSum.getInstance().initilizeHash(size);
+        SolForSum.getInstance().insertIntoHash(Arr);
 
-        test.printHashTable();
+        SolForSum.getInstance().printHashTable();
 
         for(int i=0;i<size;i++){
-            int restVal= sum - test.hash[i];
+            int restVal= sum - SolForSum.getInstance().hash[i];
             if(restVal<0) continue;
-            if(test.searchValue(restVal)) return true;
+            if(Hashing.getInstance().searchValue(restVal,SolForSum.getInstance().hash)) return true;
         }
 
 
@@ -81,7 +54,7 @@ public class SolForSum extends AbstractHash  {
     public static void main(String args[])
     {
         int A[] = {1, 4, 45, 6, 10, 8};
-        int n = 13;
+        int n = 10;
         int arr_size = A.length;
 
         // Function calling
