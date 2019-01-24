@@ -34,4 +34,21 @@ public class Sorting implements Sort {
             quickSort(a, pi + 1, end);
         }
     }
+    public void heapify(int[] arr,int low,int high){
+        int l=0,r=0;
+        for(int i=(high/2)-1;i>=0;i--){
+            l= 2*i+1;
+            r= 2*i+2;
+            if(arr[i]<arr[l]) swap(arr,i,l);
+            if(r<high && arr[i]<arr[r]) swap(arr,i,r);
+        }
+        swap(arr,0,high-1);
+    }
+
+    @Override
+    public void heapSort(int[] a, int start, int end) {
+        for(int i=0;i<end;i++){
+            heapify(a,start,end-i);
+        }
+    }
 }

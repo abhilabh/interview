@@ -13,7 +13,8 @@ public class FunctionTest {
     public static void main(String args[]) {
         int A[] = {1, 4, 45, 6, 10, 8};
         Sorting test = new Sorting();
-        test.quickSort(A,0,A.length-1);
+        //test.quickSort(A,0,A.length-1);
+        test.heapSort(A,0,A.length);
         printArray(A);
     }
 }
