@@ -28,5 +28,10 @@ public class FunctionTest {
         list = list.insertNode(list, 7);
         list = list.insertNode(list, 8);
         list.printList(list);
+
+        list = list.deleteNode(list,1);
+        list = list.deleteNode(list,4);
+        list = list.deleteNode(list,8);
+        list.printList(list);
     }
 }
