@@ -1,3 +1,4 @@
+import LinkedList.DoublyLinkedList;
 import LinkedList.LinkedInt;
 import Sort.Sorting;
 import Tree.TreeImplementation;
@@ -34,6 +35,8 @@ public class FunctionTest {
         list = list.deleteNode(list,4);
         list = list.deleteNode(list,8);
         list.printList(list);*/
+
+        /*
         TreeImplementation tree = new TreeImplementation();
         tree = tree.insertBst(tree,5);
         tree = tree.insertBst(tree,7);
@@ -46,5 +49,24 @@ public class FunctionTest {
         tree.inorderTravalsal(tree.root);
         tree.preorderTravalsal(tree.root);
         tree.postorderTravalsal(tree.root);
+        */
+
+        DoublyLinkedList list = new DoublyLinkedList();
+        list = list.insert(list, 1);
+        list = list.insert(list, 2);
+        list = list.insert(list, 3);
+        list = list.insert(list, 4);
+        list = list.insert(list, 5);
+        list = list.insert(list, 6);
+        list = list.insert(list, 7);
+        list = list.insert(list, 8);
+        list.printList(list);
+
+        System.out.println("\n");
+
+        list.delete(list,1);
+        list.delete(list,4);
+        list.delete(list,8);
+        list.printList(list);
     }
 }
