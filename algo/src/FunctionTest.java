@@ -1,6 +1,7 @@
 import LinkedList.DoublyLinkedList;
 import LinkedList.LinkedInt;
 import Sort.Sorting;
+import Tree.AvlTreeImpl;
 import Tree.TreeImplementation;
 
 /**
@@ -51,6 +52,7 @@ public class FunctionTest {
         tree.postorderTravalsal(tree.root);
         */
 
+        /*
         DoublyLinkedList list = new DoublyLinkedList();
         list = list.insert(list, 1);
         list = list.insert(list, 2);
@@ -68,5 +70,13 @@ public class FunctionTest {
         list.delete(list,4);
         list.delete(list,8);
         list.printList(list);
+        */
+
+        AvlTreeImpl tree = new AvlTreeImpl();
+        tree.root = tree.insert(tree.root,10);
+        tree.root = tree.insert(tree.root,5);
+        tree.root = tree.insert(tree.root,3);
+
+        tree.inOrderPrint(tree.root);
     }
 }
