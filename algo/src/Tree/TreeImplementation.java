@@ -33,6 +33,39 @@ public class TreeImplementation {
         }
         return tree;
     }
+
+    public Node preSuccessor(Node node){
+        while (node.left != null){
+            node = node.left;
+        }
+
+        return node;
+    }
+    public Node delete(Node tree,int data){
+        if(tree == null) return tree;
+        if(data < tree.data){
+            tree.left = delete(tree.left,data);
+        }
+        else if(data > tree.data){
+            tree.right = delete(tree.right, data);
+        }
+        else {
+            if (tree.left == null) {
+                return tree.right;
+            } else if (tree.right == null) {
+                return tree.left;
+            }
+
+
+            tree.data = preSuccessor(tree.right).data;
+            tree.right = delete(tree.right, tree.data);
+
+        }
+
+        return tree;
+
+
+    }
     public void inorderTravalsal(Node tree){
         if(tree != null){
             inorderTravalsal(tree.left);

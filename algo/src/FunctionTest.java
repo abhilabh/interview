@@ -37,7 +37,7 @@ public class FunctionTest {
         list = list.deleteNode(list,8);
         list.printList(list);*/
 
-        /*
+
         TreeImplementation tree = new TreeImplementation();
         tree = tree.insertBst(tree,5);
         tree = tree.insertBst(tree,7);
@@ -48,9 +48,14 @@ public class FunctionTest {
         tree = tree.insertBst(tree,12);
 
         tree.inorderTravalsal(tree.root);
-        tree.preorderTravalsal(tree.root);
-        tree.postorderTravalsal(tree.root);
-        */
+       // tree.preorderTravalsal(tree.root);
+       // tree.postorderTravalsal(tree.root);
+
+        tree.root = tree.delete(tree.root, 25);
+        tree.root = tree.delete(tree.root, 48);
+        tree.inorderTravalsal(tree.root);
+
+
 
         /*
         DoublyLinkedList list = new DoublyLinkedList();
@@ -72,11 +77,14 @@ public class FunctionTest {
         list.printList(list);
         */
 
+        /*
         AvlTreeImpl tree = new AvlTreeImpl();
         tree.root = tree.insert(tree.root,10);
         tree.root = tree.insert(tree.root,5);
         tree.root = tree.insert(tree.root,3);
 
+
         tree.inOrderPrint(tree.root);
+        */
     }
 }
