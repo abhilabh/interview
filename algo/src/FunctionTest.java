@@ -51,9 +51,11 @@ public class FunctionTest {
        // tree.preorderTravalsal(tree.root);
        // tree.postorderTravalsal(tree.root);
 
-        tree.root = tree.delete(tree.root, 25);
-        tree.root = tree.delete(tree.root, 48);
-        tree.inorderTravalsal(tree.root);
+        //tree.root = tree.delete(tree.root, 25);
+        //tree.root = tree.delete(tree.root, 48);
+        //tree.inorderTravalsal(tree.root);
+
+        System.out.println("height of tree= "+tree.height(tree.root));
 
 
 

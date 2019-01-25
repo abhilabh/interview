@@ -66,6 +66,15 @@ public class TreeImplementation {
 
 
     }
+    public int max(int x, int y){
+        if(x>y) return x;
+        else return y;
+    }
+
+    public int height(Node tree){
+        if(tree == null) return 0;
+        return 1+ max(height(tree.left),height(tree.left));
+    }
     public void inorderTravalsal(Node tree){
         if(tree != null){
             inorderTravalsal(tree.left);
