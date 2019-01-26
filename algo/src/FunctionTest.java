@@ -38,7 +38,7 @@ public class FunctionTest {
         list.printList(list);*/
 
 
-        TreeImplementation tree = new TreeImplementation();
+        /*TreeImplementation tree = new TreeImplementation();
         tree = tree.insertBst(tree,5);
         tree = tree.insertBst(tree,7);
         tree = tree.insertBst(tree,25);
@@ -56,7 +56,7 @@ public class FunctionTest {
         //tree.inorderTravalsal(tree.root);
 
         System.out.println("height of tree= "+tree.height(tree.root));
-
+        */
 
 
         /*
@@ -79,14 +79,18 @@ public class FunctionTest {
         list.printList(list);
         */
 
-        /*
+
         AvlTreeImpl tree = new AvlTreeImpl();
-        tree.root = tree.insert(tree.root,10);
         tree.root = tree.insert(tree.root,5);
+        tree.root = tree.insert(tree.root,4);
+        tree.root = tree.insert(tree.root,7);
         tree.root = tree.insert(tree.root,3);
 
 
         tree.inOrderPrint(tree.root);
-        */
+        System.out.println("\n");
+        tree.root = tree.delete(tree.root,7);
+        tree.inOrderPrint(tree.root);
+
     }
 }

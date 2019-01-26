@@ -77,6 +77,58 @@ public class AvlTreeImpl {
         return node;
     }
 
+    public Node preSuccessor(Node node){
+        while (node.left != null){
+            node = node.left;
+        }
+
+        return node;
+    }
+
+    public Node delete(Node tree,int data){
+        if(tree == null) return tree;
+
+        int balance = getHeight(tree.left ) - getHeight(tree.right);
+
+        if(balance >1 && data < tree.left.key){
+            return rightRotate(tree);
+        }
+        if(balance <-1 && data > tree.right.key){
+            return leftRotate(tree);
+        }
+        if(balance >1 && data > tree.left.key){
+            tree.left = leftRotate(tree.left);
+            return rightRotate(tree);
+        }
+        if(balance < -1 && data < tree.right.key){
+            tree.right=rightRotate(tree.right);
+            return leftRotate(tree);
+        }
+        if(data < tree.key){
+            tree.left = delete(tree.left,data);
+        }
+        else if(data > tree.key){
+            tree.right = delete(tree.right, data);
+        }
+        else {
+            if (tree.left == null) {
+                return tree.right;
+            } else if (tree.right == null) {
+                return tree.left;
+            }
+
+
+            tree.key = preSuccessor(tree.right).key;
+            tree.right = delete(tree.right, tree.key);
+
+        }
+
+
+        return tree;
+
+
+    }
+
     public void inOrderPrint(Node node){
         if(node != null){
             inOrderPrint(node.left);
