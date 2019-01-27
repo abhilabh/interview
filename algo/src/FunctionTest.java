@@ -1,6 +1,8 @@
 import LinkedList.DoublyLinkedList;
 import LinkedList.LinkedInt;
 import Sort.Sorting;
+import StackQueueImpl.QueueLinkedlistImpl;
+import StackQueueImpl.StackLinklistimpl;
 import Tree.AvlTreeImpl;
 import Tree.TreeImplementation;
 
@@ -80,6 +82,8 @@ public class FunctionTest {
         */
 
 
+
+        /*
         AvlTreeImpl tree = new AvlTreeImpl();
         tree.root = tree.insert(tree.root,5);
         tree.root = tree.insert(tree.root,4);
@@ -91,6 +95,38 @@ public class FunctionTest {
         System.out.println("\n");
         tree.root = tree.delete(tree.root,7);
         tree.inOrderPrint(tree.root);
+        */
+        /*
+        StackLinklistimpl<Integer> stack = new StackLinklistimpl<Integer>();
+        stack.push(7);
+        stack.push(8);
+        stack.push(9);
+        stack.push(10);
+        stack.push(11);
+        stack.printStack();
+        stack.pop();
+        stack.pop();
+        System.out.println("\n");
+        stack.printStack();
+        */
+        QueueLinkedlistImpl<Integer> queue = new QueueLinkedlistImpl<Integer>();
 
+        queue.enQueue(1);
+        queue.enQueue(2);
+        queue.enQueue(3);
+        queue.enQueue(4);
+        queue.enQueue(5);
+        queue.enQueue(6);
+        queue.enQueue(7);
+
+        queue.printQueue();
+
+        queue.deQueue();
+        queue.deQueue();
+        queue.deQueue();
+
+        System.out.println();
+
+        queue.printQueue();
     }
 }
