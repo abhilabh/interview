@@ -85,25 +85,13 @@ public class AvlTreeImpl {
         return node;
     }
 
+    public int getBalance(Node node){
+        return getHeight(node.left ) - getHeight(node.right);
+    }
+
     public Node delete(Node tree,int data){
         if(tree == null) return tree;
 
-        int balance = getHeight(tree.left ) - getHeight(tree.right);
-
-        if(balance >1 && data < tree.left.key){
-            return rightRotate(tree);
-        }
-        if(balance <-1 && data > tree.right.key){
-            return leftRotate(tree);
-        }
-        if(balance >1 && data > tree.left.key){
-            tree.left = leftRotate(tree.left);
-            return rightRotate(tree);
-        }
-        if(balance < -1 && data < tree.right.key){
-            tree.right=rightRotate(tree.right);
-            return leftRotate(tree);
-        }
         if(data < tree.key){
             tree.left = delete(tree.left,data);
         }
@@ -121,6 +109,26 @@ public class AvlTreeImpl {
             tree.key = preSuccessor(tree.right).key;
             tree.right = delete(tree.right, tree.key);
 
+        }
+        if (tree == null)
+            return tree;
+        tree.h = 1 + max(getHeight(tree.left),getHeight(tree.right));
+
+        int balance = getBalance(tree);
+
+        if(balance >1 && getBalance(tree.left) >= 0){
+            return rightRotate(tree);
+        }
+        if(balance <-1 && getBalance(tree.right) <= 0){
+            return leftRotate(tree);
+        }
+        if(balance >1 && getBalance(tree.left) < 0){
+            tree.left = leftRotate(tree.left);
+            return rightRotate(tree);
+        }
+        if(balance < -1 && getBalance(tree.right) > 0){
+            tree.right=rightRotate(tree.right);
+            return leftRotate(tree);
         }
 
 
