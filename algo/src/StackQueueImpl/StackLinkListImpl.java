@@ -3,7 +3,7 @@ package StackQueueImpl;
 /**
  * Created by abhilabh on 1/27/19.
  */
-public class StackLinklistimpl <Item> {
+public class StackLinkListImpl<Item> {
     private Node first = null;
 
     private class Node{

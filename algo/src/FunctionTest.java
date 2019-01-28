@@ -1,10 +1,4 @@
-import LinkedList.DoublyLinkedList;
-import LinkedList.LinkedInt;
-import Sort.Sorting;
 import StackQueueImpl.QueueLinkedlistImpl;
-import StackQueueImpl.StackLinklistimpl;
-import Tree.AvlTreeImpl;
-import Tree.TreeImplementation;
 
 /**
  * Created by abhilabh on 1/24/19.
@@ -97,7 +91,7 @@ public class FunctionTest {
         tree.inOrderPrint(tree.root);
         */
         /*
-        StackLinklistimpl<Integer> stack = new StackLinklistimpl<Integer>();
+        StackLinkListImpl<Integer> stack = new StackLinkListImpl<Integer>();
         stack.push(7);
         stack.push(8);
         stack.push(9);
