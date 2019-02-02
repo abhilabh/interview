@@ -25,6 +25,7 @@ public class TestClass {
         graph.addNodeAdj(3, 3);
 
         //graph.bfsPrint(2);
-        graph.dfsPrint(2);
+        //graph.dfsPrint(2);
+        graph.dfsRecurs(2);
     }
 }

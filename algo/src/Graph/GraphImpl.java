@@ -82,6 +82,22 @@ public class GraphImpl {
             }
 
     }
+    public void dfsUtils(Integer i, boolean v[]){
+        v[i] = true;
+        System.out.print(i+" ");
+
+        Iterator<Integer> n = graphNode[i].listIterator();
+        while(n.hasNext()){
+            Integer j = n.next();
+            if(v[j] != true){
+                dfsUtils(j,v);
+            }
+        }
+    }
+    public void dfsRecurs(Integer i){
+        boolean v[] = new boolean[nV];
+        dfsUtils(i,v);
+    }
 
     public void printGraph(GraphImpl graph){
         for(int i=0; i< nV; i++){
