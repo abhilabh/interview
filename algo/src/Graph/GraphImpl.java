@@ -49,6 +49,40 @@ public class GraphImpl {
         }
     }
 
+    public void dfsPrint(Integer start){
+        boolean visited[] = new boolean[nV];
+        LinkedList<Integer> stack = new LinkedList<>();
+        stack.add(start);
+        visited[start] = true;
+        System.out.print(start);
+        Integer next = start;
+
+        while (stack.size() != 0){
+
+                Iterator<Integer> i = graphNode[next].listIterator();
+                while(i.hasNext()) {
+                    Integer t = i.next();
+                    if(visited[t]!=true){
+                        System.out.print(" "+t);
+                        stack.add(t);
+                        next = t;
+                        visited[next]=true;
+                        break;
+                    }
+                    if(!i.hasNext()) {
+                        stack.pollLast();
+                        if(stack.size()!=0)
+                        next = stack.getLast();
+
+                    }
+
+                }
+
+
+            }
+
+    }
+
     public void printGraph(GraphImpl graph){
         for(int i=0; i< nV; i++){
             for (Integer k : graph.graphNode[i]){
