@@ -3,6 +3,7 @@ package Graph;
 import javax.swing.text.html.HTMLDocument;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class GraphImpl {
     LinkedList<Integer> graphNode[];
@@ -77,14 +78,12 @@ public class GraphImpl {
                     }
 
                 }
-
-
             }
 
     }
     public void dfsUtils(Integer i, boolean v[]){
         v[i] = true;
-        System.out.print(i+" ");
+        //System.out.print(i+" ");
 
         Iterator<Integer> n = graphNode[i].listIterator();
         while(n.hasNext()){
@@ -99,12 +98,55 @@ public class GraphImpl {
         dfsUtils(i,v);
     }
 
-    public void printGraph(GraphImpl graph){
+    public void printGraph(){
         for(int i=0; i< nV; i++){
-            for (Integer k : graph.graphNode[i]){
-                System.out.print(" "+k);
+            System.out.print(i);
+            for (Integer k : graphNode[i]){
+                System.out.print("-->"+k);
             }
             System.out.println();
         }
     }
+
+    public Integer motherVertex(){
+        boolean v[] = new boolean[nV];
+        for (int i=0; i< nV;i++){
+            dfsUtils(i,v);
+            for (int j=0;j<nV;j++)
+            {
+                if(v[j]!=true) break;
+                if(j==nV-1) return i;
+
+            }
+        }
+        return -1;
+    }
+
+    public void dfsForToplogical(boolean visted[], Stack<Integer> stack, Integer v){
+        visted[v]= true;
+        Iterator<Integer> i = graphNode[v].listIterator();
+        while (i.hasNext()){
+            Integer next = i.next();
+            if(visted[next] == false){
+                visted[next] = true;
+                dfsForToplogical(visted, stack, next);
+            }
+        }
+        stack.add(v);
+    }
+
+    public void topologicalSort(){
+        boolean visited[] = new boolean[nV];
+        Stack<Integer> stack = new Stack<>();
+        for(int i = 0; i < nV; i++){
+            if(visited[i]==false){
+                dfsForToplogical(visited, stack, i);
+            }
+        }
+
+        while (stack.size() != 0){
+            System.out.print(stack.pop()+" ");
+        }
+    }
+
 }
