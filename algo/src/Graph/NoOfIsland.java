@@ -26,7 +26,7 @@ public class NoOfIsland {
         return false;
     }
 
-    private void dfsUtils(Integer graph[][], boolean visited[][], Integer u, Integer v){
+    private Integer dfsUtils(Integer graph[][], boolean visited[][], Integer u, Integer v, Integer h){
 
         visited[u][v] = true;
 
@@ -35,23 +35,30 @@ public class NoOfIsland {
 
         for (int i = 0; i < 8; i++){
             if(isSafe(graph, visited, u+c[i], v+r[i])){
-                dfsUtils(graph, visited, u+c[i], v+r[i]);
+                h++;
+                h = dfsUtils(graph, visited, u+c[i], v+r[i], h);
             }
         }
+        return h;
     }
 
     public Integer NoOfIsland(Integer graph[][], Integer size){
-        int count = 0;
+        //int count = 0;
+        Integer h = 0;
+        Integer maxH = 0;
         boolean visited[][] = new boolean[COL][ROW];
         for(int i = 0; i < COL; i++){
             for (int j = 0; j < ROW; j++)
             if(graph[i][j] == 1 && visited[i][j] == false){
-                dfsUtils(graph, visited, i, j);
-                count++;
+
+                h = dfsUtils(graph, visited, i, j,h);
+                //count++;
+                if(h > maxH) maxH = h;
             }
         }
 
-        return count;
+        //return count;
+        return maxH -1;
     }
 
     public static void main(String arg[]){
@@ -59,12 +66,13 @@ public class NoOfIsland {
         NoOfIsland.ROW = 5;
         NoOfIsland.COL = 5;
 
-        Integer graph[][] = new Integer[][]{{1, 1, 0, 0, 0},
-                {0, 1, 0, 0, 1},
+        Integer graph[][] = new Integer[][]
+                {{1, 1, 1, 1, 1},
+                {0, 1, 0, 1, 0},
                 {1, 0, 0, 1, 1},
                 {0, 0, 0, 0, 0},
                 {1, 0, 1, 0, 1}};
 
-        System.out.println(" No of island = "+ island.NoOfIsland(graph, 5));
+        System.out.println(" Maximum height of island is = "+ island.NoOfIsland(graph, 5));
     }
 }
