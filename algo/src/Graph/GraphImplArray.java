@@ -1,6 +1,6 @@
 package Graph;
 
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedList;
 
@@ -143,7 +143,7 @@ public class GraphImplArray {
         return j;
     }
 
-    private Integer longDistDfs(Integer graph[][], Integer dist[], @NotNull boolean visited[], Integer u, Integer size, Integer x){
+    private Integer longDistDfs(Integer graph[][], Integer dist[], boolean visited[], Integer u, Integer size, Integer x){
 
         visited[u] = true;
 

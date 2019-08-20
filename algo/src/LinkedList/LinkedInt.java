@@ -30,9 +30,10 @@ public class LinkedInt {
     public void printList(LinkedInt list){
         Node temp=list.head;
         while(temp!=null){
-            System.out.println(temp.data+"\t");
+            System.out.print(temp.data+"\t");
             temp=temp.next;
         }
+        System.out.println();
     }
 
     public LinkedInt deleteNode(LinkedInt list,int data){
