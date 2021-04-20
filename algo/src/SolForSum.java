@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Created by abhilabh on 1/23/19.
  */
@@ -64,6 +68,10 @@ public class SolForSum  {
         else
             System.out.println("Array doesn't have " +
                     "two elements with given sum");
+//        HashMap<Integer,String> map = new HashMap<>();
+//        Queue<HashMap> queue = new LinkedList<>();
+//        map.put(1,"abhi");
+//        queue.add(map);
 
     }
 }
